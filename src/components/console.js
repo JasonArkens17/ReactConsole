@@ -20,7 +20,7 @@ class Console extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault();
-      this.setState({promptHistory: this.state.promptHistory.concat([this.props.prompt])})
+      this.setState({promptHistory: this.state.promptHistory.concat([this.props.prompt])});
       this.props.pushHistory({data: this.props.prompt, type: "prompt"}, () => this.handleInput(this.props.prompt));
     }
 
@@ -30,15 +30,15 @@ class Console extends React.Component {
     }
 
     setInputHistory = (cb) => {
-      this.setState({inputHistoryNumber: this.state.inputHistoryNumber + 1, historyIndex: this.state.historyIndex + 1}, cb)
+      this.setState({inputHistoryNumber: this.state.inputHistoryNumber + 1, historyIndex: this.state.historyIndex + 1}, cb);
     }
 
 
-    handleKeyUp = (e) => {
+    handleKeyDown = (e) => {
       //detect if user is pressing shift and enter to add new line
       if(e.shiftKey && e.key === 'Enter') {
         e.preventDefault();
-        this.props.setPrompt(this.props.prompt.concat('\n'))
+        this.props.setPrompt(this.props.prompt.concat('\n'));
         return;
       }
 
@@ -46,15 +46,15 @@ class Console extends React.Component {
       switch(e.key) {
         case 'Enter':
           e.preventDefault();
-          this.setInputHistory(() => this.handleSubmit(e))
+          this.setInputHistory(() => this.handleSubmit(e));
           break;
         case 'ArrowUp':
           e.preventDefault();
-          this.handleScrollUp()
+          this.handleScrollUp();
           break;
         case 'ArrowDown':
           e.preventDefault();
-          this.handleScrollDown()
+          this.handleScrollDown();
           break;
       }
     }
@@ -83,7 +83,7 @@ class Console extends React.Component {
         return (
           <div>
             <PromptList history={this.props.history} />
-            <textarea autoFocus rows='1' value={this.props.prompt} onChange={(e) => this.onInputChange(e.target.value)} onKeyUp={this.handleKeyUp}></textarea>
+            <textarea autoFocus rows='1' value={this.props.prompt} onChange={(e) => this.onInputChange(e.target.value)} onKeyDown={this.handleKeyDown}></textarea>
           </div>
 
         );
