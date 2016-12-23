@@ -11,7 +11,7 @@ const PromptList = (props) => {
   });
 
   return (
-    <ul class="custom-bullet">
+    <ul>
       {promptItems}
     </ul>
   );
