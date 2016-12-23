@@ -19,9 +19,26 @@ class App extends React.Component {
      this.setState({ history: this.state.history.concat([{ type, data }]) }, cb);
    }
 
+
+   escapeHtml = (string) => {
+     const entityMap = {
+       "&": "&amp;",
+       "<": "&lt;",
+       ">": "&gt;",
+       '"': '&quot;',
+       "'": '&#39;',
+       "/": '&#x2F;'
+     };
+
+     return String(string).replace(/[&<>"'\/]/g, function (s) {
+       return entityMap[s];
+     });
+   }
+
    evalCallback = (str) => {
+     let safeStr = this.escapeHtml(str);
      try {
-       eval(str);
+       eval(safeStr);
      } catch(e) {
        return "Uncaught ReferenceError: " + str + " is not defined";
      }
