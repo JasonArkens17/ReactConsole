@@ -21,7 +21,7 @@ npm start
 
 4. Small arrow icons signifying input and output 
 
-5. Lots more that I cannot think of at the moment...
+5. Redux?
 
 
 ## Contributing
