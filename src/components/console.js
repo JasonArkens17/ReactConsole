@@ -35,11 +35,14 @@ class Console extends React.Component {
 
 
     handleKeyUp = (e) => {
+      //detect if user is pressing shift and enter to add new line
       if(e.shiftKey && e.key === 'Enter') {
         e.preventDefault();
         this.props.setPrompt(this.props.prompt.concat('\n'))
         return;
       }
+
+      //keyboard event handlers for evaluation and scrolling
       switch(e.key) {
         case 'Enter':
           e.preventDefault();
@@ -57,16 +60,20 @@ class Console extends React.Component {
     }
 
     handleScrollUp = () => {
+      //prevent index counter from going beyond prompt history length
       if(this.state.historyIndex === -1) {
         return;
       }
+      //scroll backwards
       this.props.setPrompt(this.state.promptHistory[this.state.historyIndex], () => this.setState({historyIndex: this.state.historyIndex - 1}));
     }
 
     handleScrollDown = () => {
+      //reset prompt to empty when scrolling back past last output prompt
       if(this.state.historyIndex === this.state.inputHistoryNumber) {
         this.props.setPrompt(' ', this.setState({historyIndex: this.state.inputHistoryNumber - 1}));
       } else {
+        //scroll forwards
         this.props.setPrompt(this.state.promptHistory[this.state.historyIndex + 1], () => this.setState({historyIndex: this.state.historyIndex + 1}));
       }
     }

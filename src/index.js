@@ -21,6 +21,7 @@ class App extends React.Component {
 
 
    escapeHtml = (string) => {
+     //escaping to prevent some basic XXS attacks
      const entityMap = {
        "&": "&amp;",
        "<": "&lt;",
