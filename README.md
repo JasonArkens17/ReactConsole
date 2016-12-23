@@ -19,7 +19,7 @@ npm start
 
 3. Small arrow icons signifying input and output 
 
-4. Lots more I cant think of at the moment...
+4. Lots more that I cannot think of at the moment...
 
 
 ## Contributing
