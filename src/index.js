@@ -40,7 +40,6 @@ class App extends React.Component {
 
    evalCallback = (str) => {
      let safeStr = this.escapeHtml(str);
-     console.log(safeStr)
      try {
        eval(safeStr);
      } catch(e) {
