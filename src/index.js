@@ -28,16 +28,19 @@ class App extends React.Component {
        ">": "&gt;",
        '"': '&quot;',
        "'": '&#39;',
-       "/": '&#x2F;'
+       "/": '&#x2F;',
+       "a": '/a',
+       "A": '/A'
      };
 
-     return String(string).replace(/[&<>"'\/]/g, function (s) {
+     return String(string).replace(/[&<>"'\/a|A]/g, function (s) {
        return entityMap[s];
      });
    }
 
    evalCallback = (str) => {
      let safeStr = this.escapeHtml(str);
+     console.log(safeStr)
      try {
        eval(safeStr);
      } catch(e) {
