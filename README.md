@@ -13,8 +13,7 @@ npm start
 ```
 
 ###Moving Forward
-<<<<<<< HEAD
-1. Figure out how to parse and save entires such as 'functions' or 'variables' to the window or memory so you can call them back once entered in.
+1. Use iFrame to save variables and functions to the window 
 
 2. DRY out some of the repetitive functionality
 
