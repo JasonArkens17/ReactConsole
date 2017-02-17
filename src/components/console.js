@@ -1,7 +1,6 @@
 import React from 'react';
 import PromptList from './prompt_list';
 
-
 class Console extends React.Component {
   constructor(props) {
       super(props);
@@ -32,7 +31,6 @@ class Console extends React.Component {
     setInputHistory = (cb) => {
       this.setState({inputHistoryNumber: this.state.inputHistoryNumber + 1, historyIndex: this.state.historyIndex + 1}, cb);
     }
-
 
     handleKeyDown = (e) => {
       //detect if user is pressing shift and enter to add new line
@@ -88,7 +86,6 @@ class Console extends React.Component {
 
         );
       }
-
 };
 
 export default Console;
