@@ -76,7 +76,6 @@ class Console extends React.Component {
       }
     }
 
-
     render() {
         return (
           <div>
