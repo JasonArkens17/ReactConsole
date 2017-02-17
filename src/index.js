@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import _ from 'lodash';
 import Console from './components/Console';
 
-
-
 class App extends React.Component {
   constructor(props) {
       super(props);
@@ -18,7 +16,6 @@ class App extends React.Component {
    pushHistory = ({ data, type }, cb) => {
      this.setState({ history: this.state.history.concat([{ type, data }]) }, cb);
    }
-
 
    escapeHtml = (string) => {
      //escaping to prevent some basic XXS attacks
@@ -62,7 +59,6 @@ class App extends React.Component {
               prompt={this.state.prompt} />
       )
     }
-
 };
 
 ReactDOM.render(<App />, document.querySelector('.container'));
